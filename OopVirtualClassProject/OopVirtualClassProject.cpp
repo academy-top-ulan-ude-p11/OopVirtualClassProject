@@ -63,7 +63,7 @@ public:
 
 
 
-class Transport : public IMovable
+class Transport //: public IMovable
 {
 protected:
     string title;
@@ -87,10 +87,10 @@ public:
         return "car " + title + " speed = " + to_string(speed);
     }
 
-    void Move() override
+    /*void Move() override
     {
         cout << "car move\n";
-    }
+    }*/
 };
 
 class Airplane : public Transport
@@ -104,30 +104,30 @@ public:
         return "Airplane " + title + " heigth = " + to_string(heigth);
     }
 
-    void Move() override
+    /*void Move() override
     {
         cout << "airplane move\n";
-    }
+    }*/
 };
 
 
 int main()
 {
-    Animal* animal = new Cat();
+    /*Animal* animal = new Cat();
     cout << animal->Voice() << "\n";
 
     animal = new Dog();
-    cout << animal->Voice() << "\n";
+    cout << animal->Voice() << "\n";*/
 
     /*animal = new Animal();
     cout << animal->Voice() << "\n";*/
 
-    vector<IMovable*> movableObjects;
+    vector<Transport*> movableObjects;
     movableObjects.push_back(new Car("Bmv", 200));
-    movableObjects.push_back(new Cat());
+    //movableObjects.push_back(Cat());
     movableObjects.push_back(new Airplane("Boing", 5000));
-    movableObjects.push_back(new Dog());
+    //movableObjects.push_back(Dog());
 
     for (int i = 0; i < movableObjects.size(); i++)
-        movableObjects[i]->Move();
+        cout << movableObjects[i]->Info() << "\n";
 }
